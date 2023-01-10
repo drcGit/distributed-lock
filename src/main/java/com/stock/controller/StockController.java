@@ -11,10 +11,15 @@ public class StockController {
     @Autowired
     private StockService stockService;
 
-    @GetMapping("stock/deduct")
-    public String deduct(){
-        this.stockService.deduct();
-        return "hello stock deduct！！";
+    @GetMapping("stock/redissonLock")
+    public String redissonLock(){
+        this.stockService.redissonLock();
+        return "hello stock redissonLock！！";
     }
 
+    @GetMapping("stock/deductByReentrantLock")
+    public String deductByReentrantLock(){
+        this.stockService.deductByReentrantLock();
+        return "hello stock deductByReentrantLock！！";
+    }
 }
